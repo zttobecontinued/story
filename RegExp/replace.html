@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 	str.replace(字符串||正则,字符串||cb)
+			 	
+			 	第一个参数是替换谁
+			 	第二个参数是替换成什么
+			 	
+			 	
+			 	cb默认的参数：
+			 		$0 : 当前正则匹配到的字符;
+			 		$1 : 当前匹配到字符的索引;
+			 		$2 : 整个字符串;
+			 		$3 : undefined;
+			 		$4 : undefined;
+			 		……
+			 */
+//			let str = '袁绍康';
+			let str = '黩你它么个邪教之徒';
+	
+//		     console.log(str.replace('绍康','一刀'));
+		
+//		     console.log(str.replace(/袁|它么|邪教/g,'*'));
+		
+		    console.log(str.replace(/黩|它么|邪教/g,function($0,$1,$2,$3){
+//		       	console.log($0);// 黩   它么   邪教
+//		        console.log($1);// 0 2 5
+//		        console.log($2);//黩你它么个邪教之徒
+		        let arr = ['&','$','@.','%','*'];
+		        let str = '';
+		        for(let i=0;i<$0.length;i++){
+		            str += arr[Math.round(Math.random()*(arr.length-1))];
+		        }
+		        return str;
+		    }));
+		</script>
+	</body>
+</html>

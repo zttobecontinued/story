@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		/*
+			parseInt(str[i]),这样可以将空格转为NaN（方便判断isNaN是过滤掉空格） 
+		*/
+//		let str = '378dsds89e1 ednnu9hr84vyecb83n80';
+//		let arr = [];
+//		for(let i = 0;i<str.length;i++){
+//			if(!isNaN(parseInt(str[i]))){
+//				arr.push(str[i]);
+//			}
+//		}
+//		console.log(arr);
+
+
+
+
+		/*
+			可以打印出连续数字，，例如378，89
+		*/
+		let str = '378dsds89e1 ednnu9hr84vyecb83n80';
+		let arr = [];
+		let temp ='';
+		for(let i = 0;i<str.length;i++){
+			if(!isNaN(parseInt(str[i]))){
+				temp += str[i];
+//				console.log(temp);
+			}else{
+//				console.log(temp);
+				if(temp){
+					arr.push(temp);
+					temp = '';
+				}
+			}
+		}
+		if(temp){
+			arr.push(temp);
+			temp = '';
+		}
+		console.log(arr);
+	</script>
+</html>
