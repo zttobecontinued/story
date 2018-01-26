@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		/*
+		 * 以前的方法
+		 * 
+		*/
+//		let str = 'dhsadh189j1dj28dn2ijsakdsa';
+//		let obj = {};
+//		for(let i = 0;i<str.length;i++){
+//			if(obj[str[i]]){
+//				obj[str[i]] ++;
+//			}else{
+//				obj[str[i]] = 1;
+//			}
+//		}
+////		console.log(obj);
+//		let min = -Infinity;
+//		let n = '';
+//		for(let attr in obj){
+//			if(obj[attr] > min){
+//				min = obj[attr];
+//				n = attr;
+//			}
+//		}
+//		console.log(n,min);// d 5
+
+
+		/*
+		
+			 重复子项的方法
+			 
+			，\num,,重复一次,如果重复多次加量次就可以了
+			子项为第几个子项，num就是几;
+			
+			\w 一个数字|字母|下滑线
+		*/
+		let str2 = 'dd11defgg';
+     	let arr = [];
+     	//查找两个重复的字母和重复的数字
+//   	str2.replace(/([a-z])\1(\d)\2\1/g,function($0){
+//   		console.log($0);
+//   	})
+		
+//		str2.replace(/([a-z])\1(\d)\2|([a-z])\3/g,function($0){
+//			console.log($0);
+//		});
+
+
+
+
+		let str = 'dh_sand_h189j_1ndj28dn2ijnsakdsa';
+
+	    str = str.split('').sort().join('');
+	    console.log(str)
+	    let min = -Infinity;
+	    let nnn = '';
+	        //([a-z])\1+|([0-9])
+	        //$1是第一个子项
+	    str.replace(/(\w)\1+/g,function($0,$1){
+	    	console.log($1)
+	        if($0.length > min){
+	            min = $0.length;
+	            nnn = $1;
+	        }
+	         
+	    });
+	
+	    console.log(nnn+'出现最多的,一共出现了'+min+'次');
+	</script>
+	</body>
+</html>
