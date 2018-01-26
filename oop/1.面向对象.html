@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<script>
+		/*
+			js面向对象:
+			            把相同部分的代码提取出来封装成一个函数（类）
+			            描述这个类型特性的方法挂在它的（类）原型上的一种编程方式。
+		*/
+	function teacher(name,age,t){//构造函数->构造对象的函数
+        var name = name;
+        var age = age;
+        var t = t;
+        return {
+            name,
+            age,
+            t,
+            say:function(){
+                alert(this.name);
+            }
+        }
+    }
+
+    //实例化对象     t1是teacher的实例化对象
+    let t1 = teacher('leo',80,'数学');
+
+       console.log(t1.t);
+
+    t1.say();
+	</script>
+	</body>
+</html>

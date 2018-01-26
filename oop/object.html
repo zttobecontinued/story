@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Aa(){
+//				this.num = 10;//①
+			};
+//			Aa.prototype.num = 20;//②
+//			Object.prototype.num = 30;//③最外层
+			Function.prototype.num = 25;
+			let hah = new Aa();
+			alert(Object.num);//25
+		</script>
+	</body>
+</html>
