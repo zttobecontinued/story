@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<style>
+#box {
+    width:100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top:0;
+    left:0;
+}
+</style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+    	let f = new Drag('box');
+    	function Drag(id){
+    		this.box = document.getElementById(id);
+    		this.disX = 0;
+    		this.disY = 0;
+//  		this.down();
+//  		moveBox(,this)
+    	}
+    	Drag.prototype.down = function(){
+//  		console.log(h);
+    		let _this = this;
+    		this.box.addEventListener('mousedown',function(ev){
+//  			console.log(this,_this);
+    			_this.disX = ev.pageX - _this.box.offsetLeft;
+    			_this.disY = ev.pageY - _this.box.offsetTop;
+    			_this.move();
+    			_this.up();
+    		})
+    	}
+    	Drag.prototype.move = function(){
+//  		console.log(2);
+    		let _this = this;
+    		document.addEventListener('mousemove',moveBox);
+    		
+    	}
+    	Drag.prototype.up = function(){
+//  		alert(1);
+    		document.addEventListener('mouseup',upBox);
+    	}
+//  	console.log(f);
+    	function moveBox(ev){
+//  		console.log(ev)
+    		f.box.style.left = ev.pageX - f.disX + 'px';
+    		f.box.style.top = ev.pageY - f.disY + 'px';
+    	}
+    	function upBox(){
+//  		alert(1);
+    		document.removeEventListener('mousemove',moveBox);
+            document.removeEventListener('mouseup',upBox);
+    	}
+    	f.down();
+
+
+
+//document.onclick  = fn();
+//function fn(){
+//	console.log(this);
+//}
+    </script>
+</body>
+</html>
